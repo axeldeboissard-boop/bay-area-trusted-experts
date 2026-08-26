@@ -1,225 +1,235 @@
 /**
- * Golden Gate Ledger design: a consumer-first editorial directory using Bridge Navy,
- * California Brass, restrained coastal photography, and left-aligned ledger layouts.
+ * Golden Gate Ledger design: Navy-and-Brass editorial credibility applied to a growth-focused,
+ * life-event discovery homepage. The supplied Bay Area Trusted Experts seal remains primary.
  */
 import {
   ArrowRight,
+  BookOpen,
   BriefcaseBusiness,
+  Building2,
   Check,
-  ChevronDown,
+  CircleHelp,
   Compass,
-  Home as HomeIcon,
+  HeartHandshake,
+  Home,
   Landmark,
   MapPin,
   Scale,
+  Search,
   ShieldCheck,
+  Sparkles,
+  UsersRound,
 } from "lucide-react";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 import { toast } from "sonner";
 
-const services = [
-  {
-    number: "01",
-    title: "Real estate & mortgage",
-    description: "Make your next move with the right local perspective.",
-    icon: HomeIcon,
-    tone: "gold",
-  },
-  {
-    number: "02",
-    title: "Financial planning",
-    description: "Build clarity around the choices that shape your future.",
-    icon: Landmark,
-    tone: "navy",
-  },
-  {
-    number: "03",
-    title: "Legal & estate",
-    description: "Put thoughtful plans in place for the people who matter.",
-    icon: Scale,
-    tone: "fog",
-  },
-  {
-    number: "04",
-    title: "Insurance & risk",
-    description: "Protect the life and assets you have worked to build.",
-    icon: ShieldCheck,
-    tone: "sand",
-  },
-  {
-    number: "05",
-    title: "Business advisory",
-    description: "Bring a steady hand to a venture or important transition.",
-    icon: BriefcaseBusiness,
-    tone: "mist",
-  },
+const lifeEvents = [
+  { title: "Buying a Home", icon: Home, professionals: "Mortgage · Real Estate · Insurance" },
+  { title: "Selling a Home", icon: Building2, professionals: "Real Estate · Tax · Financial Planning" },
+  { title: "Divorce", icon: HeartHandshake, professionals: "Family Law · Financial Planning · Mortgage" },
+  { title: "Inheritance", icon: Landmark, professionals: "Estate Planning · Tax · Real Estate" },
+  { title: "Retirement", icon: Compass, professionals: "Financial Planning · Tax · Estate Planning" },
+  { title: "Aging Parents", icon: UsersRound, professionals: "Senior Services · Estate Planning · Care" },
+  { title: "Starting a Business", icon: BriefcaseBusiness, professionals: "Business Law · Tax · Banking" },
+  { title: "Selling a Business", icon: ArrowRight, professionals: "Business Advisory · Tax · Legal" },
+  { title: "Relocation", icon: MapPin, professionals: "Real Estate · Mortgage · Financial Planning" },
+  { title: "Growing a Family", icon: Sparkles, professionals: "Estate Planning · Insurance · Financial Planning" },
+  { title: "Investment Property", icon: Building2, professionals: "Real Estate · Tax · Insurance" },
+  { title: "Loss of a Loved One", icon: HeartHandshake, professionals: "Estate Planning · Tax · Senior Services" },
 ];
 
-const considerations = [
-  "I’m making a real-estate decision",
-  "I’m planning for my financial future",
-  "I’m thinking about estate or legal matters",
-  "I’m reviewing insurance or risk",
-  "I’m navigating a business decision",
+const professions = [
+  "Real Estate", "Mortgage", "Financial Planning", "CPA & Tax", "Estate Planning", "Family Law",
+  "Business Law", "Insurance", "Business Advisory", "Senior Services", "Home Services", "Wealth Management",
 ];
 
-export default function Home() {
-  const [selected, setSelected] = useState(considerations[0]);
+const teams = [
+  { name: "Home Transition", copy: "Buying, selling, relocating, or helping a loved one move.", roles: ["Real Estate", "Mortgage", "Tax", "Insurance"], accent: "gold" },
+  { name: "Retirement", copy: "Bring your plans, assets, and next chapter into one conversation.", roles: ["Financial Planning", "Tax", "Estate", "Senior Living"], accent: "mist" },
+  { name: "Inheritance", copy: "A steadier way to understand what comes next for people and property.", roles: ["Estate Planning", "Tax", "Real Estate", "Financial Planning"], accent: "sand" },
+  { name: "Business Owner", copy: "The professionals to know as you launch, lead, grow, or exit.", roles: ["Business Law", "Tax", "Banking", "Advisory"], accent: "navy" },
+];
 
-  const handleConnect = () => {
-    toast("Your introduction pathway is being prepared", {
-      description:
-        "This preview illustrates the consumer intake experience. Connection details can be added when you are ready.",
-    });
+const questions = [
+  "Should I buy before selling my home?",
+  "What should I do after inheriting a house?",
+  "When should I update my estate plan?",
+  "What professionals do I need when retiring?",
+];
+
+const cities = ["San Francisco", "San Jose", "Palo Alto", "Los Gatos", "Oakland", "Berkeley", "Walnut Creek", "Santa Cruz"];
+
+export default function HomePage() {
+  const [activeEvent, setActiveEvent] = useState<string | null>(null);
+  const [search, setSearch] = useState("");
+
+  const onSearch = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const query = search.trim();
+    if (!query) {
+      toast("Tell us what you are trying to accomplish", { description: "For example: buy a home, plan for retirement, or start a business." });
+      return;
+    }
+    toast("We’re shaping your expert path", { description: `A future directory can connect “${query}” to the relevant professional categories.` });
+  };
+
+  const actionToast = (topic: string) => {
+    toast(`${topic} is part of the planned directory experience`, { description: "This landing page establishes the pathway. Directory and profile content can be connected next." });
   };
 
   return (
-    <div className="site-shell min-h-screen bg-[#f8f3e8] text-[#061f41]">
-      <header className="site-header">
-        <a href="#top" className="brand-lockup" aria-label="Bay Area Trusted Experts home">
-          <img
-            src="/manus-storage/BayAreaTrustedExperts_25237d54.png"
-            alt="Bay Area Trusted Experts seal"
-            className="brand-seal"
-          />
-          <span className="brand-copy">
-            <strong>Bay Area</strong>
-            <span>Trusted Experts</span>
-          </span>
+    <div className="bate-site min-h-screen">
+      <header className="bate-header">
+        <a href="#top" className="bate-brand" aria-label="Bay Area Trusted Experts home">
+          <img src="/manus-storage/BayAreaTrustedExperts_25237d54.png" alt="Bay Area Trusted Experts seal" />
+          <span><strong>Bay Area</strong><small>Trusted Experts</small></span>
         </a>
-
-        <nav aria-label="Primary navigation" className="main-nav">
-          <a href="#services">Explore services</a>
-          <a href="#approach">How it works</a>
-          <a href="#connect">Start here</a>
+        <nav className="bate-nav" aria-label="Primary navigation">
+          <a href="#life-events">Life events</a>
+          <a href="#experts">Find experts</a>
+          <a href="#teams">Expert teams</a>
+          <a href="#insights">Insights</a>
+          <a href="#join">About</a>
         </nav>
-
-        <a className="header-cta" href="#connect">
-          Find an expert <ArrowRight size={15} strokeWidth={2.2} />
-        </a>
+        <a href="#join" className="bate-header-button">Join free <ArrowRight size={15} /></a>
       </header>
 
       <main id="top">
-        <section className="hero-section" aria-labelledby="hero-title">
-          <div className="hero-content">
-            <div className="eyebrow hero-eyebrow"><span /> Bay Area guidance, thoughtfully connected</div>
-            <h1 id="hero-title">The right expert for the <em>decision</em> in front of you.</h1>
-            <p className="hero-intro">
-              A clear place to begin when life calls for trusted support. Explore local expertise across the decisions that shape your home, family, future, and business.
-            </p>
-            <div className="hero-actions">
-              <a href="#connect" className="button button-primary">
-                Tell us what you’re working through <ArrowRight size={18} />
-              </a>
-              <a href="#services" className="text-action">
-                Browse areas of expertise <ChevronDown size={18} />
-              </a>
+        <section className="bate-hero" aria-labelledby="hero-title">
+          <div className="bate-hero-copy">
+            <p className="bate-kicker"><span /> A trusted professional community</p>
+            <h1 id="hero-title">Trusted Experts for <em>Life’s Biggest Decisions.</em></h1>
+            <p className="bate-hero-summary">Connect with proven Bay Area professionals in real estate, mortgage, financial planning, legal, insurance, business advisory, and other services that matter when life changes.</p>
+            <div className="bate-hero-actions">
+              <a href="#experts" className="bate-button bate-button-gold">Find an expert <ArrowRight size={17} /></a>
+              <a href="#join" className="bate-text-link">Join the network <ArrowRight size={16} /></a>
             </div>
-            <div className="hero-note">
-              <Compass size={18} />
-              <span>Five disciplines. One considered local starting point.</span>
-            </div>
+            <div className="bate-hero-trust"><Check size={15} /> Find the people who can help you move forward well.</div>
           </div>
-
-          <div className="hero-visual" aria-label="A Bay Area professional overlooking the bay">
-            <div className="hero-image" />
-            <div className="hero-fade" />
-            <div className="hero-location"><MapPin size={15} /> Serving the Bay Area</div>
-            <div className="hero-seal-wrap">
-              <img src="/manus-storage/BayAreaTrustedExperts_25237d54.png" alt="" className="hero-seal" />
-            </div>
-            <div className="hero-arc" />
+          <div className="bate-hero-art" aria-label="Bay Area professional overlooking San Francisco Bay">
+            <div className="bate-hero-photo" />
+            <div className="bate-hero-overlay" />
+            <p className="bate-serving"><MapPin size={14} /> Serving the Bay Area</p>
+            <div className="bate-hero-seal"><img src="/manus-storage/BayAreaTrustedExperts_25237d54.png" alt="" /></div>
+            <div className="bate-hero-arc" />
           </div>
         </section>
 
-        <section className="signal-strip" aria-label="Guidance statement">
-          <p>Important decisions deserve more than a search result.</p>
-          <div className="signal-rule"><span /></div>
-          <p className="signal-muted">Start with a conversation that respects the full picture.</p>
-        </section>
-
-        <section className="services-section" id="services" aria-labelledby="services-title">
-          <div className="section-heading services-heading">
+        <section className="bate-life-section" id="life-events" aria-labelledby="life-title">
+          <div className="bate-section-lead">
             <div>
-              <p className="eyebrow"><span /> Areas of expertise</p>
-              <h2 id="services-title">Choose the path that<br /><em>meets your moment.</em></h2>
+              <p className="bate-kicker"><span /> Start with what is happening</p>
+              <h2 id="life-title">Life happens.<br /><em>Know who to call.</em></h2>
             </div>
-            <p className="heading-sidecopy">Your question may be specific. The decision around it rarely is. Start with the area that is most present for you now.</p>
+            <p>Important decisions rarely involve just one question or one professional. Begin with the moment you are navigating, then see the kinds of expertise that may belong in the conversation.</p>
           </div>
-
-          <div className="service-route" aria-hidden="true"><span>Begin here</span><i /><i /><i /><i /><i /></div>
-          <div className="service-list">
-            {services.map((service) => {
-              const Icon = service.icon;
+          <div className="bate-event-grid">
+            {lifeEvents.map((item, index) => {
+              const Icon = item.icon;
+              const isActive = activeEvent === item.title;
               return (
-                <a href="#connect" className={`service-row service-${service.tone}`} key={service.number}>
-                  <span className="service-number">{service.number}</span>
-                  <span className="service-icon"><Icon size={26} strokeWidth={1.45} /></span>
-                  <span className="service-copy"><strong>{service.title}</strong><span>{service.description}</span></span>
-                  <span className="service-arrow"><ArrowRight size={21} /></span>
-                </a>
+                <button key={item.title} type="button" className={isActive ? "bate-event active" : "bate-event"} onClick={() => setActiveEvent(isActive ? null : item.title)} aria-expanded={isActive}>
+                  <span className="bate-event-number">{String(index + 1).padStart(2, "0")}</span>
+                  <Icon size={22} strokeWidth={1.5} />
+                  <span className="bate-event-title">{item.title}</span>
+                  <ArrowRight size={17} className="bate-event-arrow" />
+                  {isActive && <span className="bate-event-detail"><strong>Helpful expertise:</strong> {item.professionals}</span>}
+                </button>
               );
             })}
           </div>
+          <p className="bate-event-caption"><CircleHelp size={15} /> Select a life event to reveal a starting point. Detailed guides and expert introductions can be added as the directory grows.</p>
         </section>
 
-        <section className="approach-section" id="approach" aria-labelledby="approach-title">
-          <div className="approach-photo" role="img" aria-label="Golden Gate Bridge detail in morning fog">
-            <div className="approach-photo-tint" />
-            <div className="photo-caption">A local point of view<br />changes the conversation.</div>
+        <section className="bate-find-section" id="experts" aria-labelledby="find-title">
+          <div className="bate-find-copy">
+            <p className="bate-kicker bate-kicker-light"><span /> Search by need or profession</p>
+            <h2 id="find-title">What do you need help <em>with?</em></h2>
+            <p>Start with a goal, a concern, or a profession. Bay Area Trusted Experts is designed to make the next conversation more informed.</p>
           </div>
-          <div className="approach-copy">
-            <p className="eyebrow"><span /> A more considered introduction</p>
-            <h2 id="approach-title">Local insight, without the <em>runaround.</em></h2>
-            <p className="approach-intro">The best introductions begin with context. Bay Area Trusted Experts offers an unhurried way to orient the conversation before you choose who to call.</p>
-            <ol className="approach-steps">
-              <li><span>1</span><div><strong>Name the decision</strong><p>Begin with the matter on your mind, large or small.</p></div></li>
-              <li><span>2</span><div><strong>Bring the full picture</strong><p>Consider the people, property, plans, and questions that surround it.</p></div></li>
-              <li><span>3</span><div><strong>Move forward well</strong><p>Explore the relevant professional path with a clearer point of view.</p></div></li>
-            </ol>
-          </div>
-        </section>
-
-        <section className="connect-section" id="connect" aria-labelledby="connect-title">
-          <div className="connect-heading">
-            <div className="eyebrow eyebrow-light"><span /> Find your starting point</div>
-            <h2 id="connect-title">What are you<br /><em>working through?</em></h2>
-            <p>Choose the closest fit. You can refine the conversation from there.</p>
-            <div className="connect-meta"><Check size={16} /> No pressure. Just a more useful next step.</div>
-          </div>
-
-          <div className="connect-card">
-            <p className="form-label">Your primary consideration</p>
-            <div className="consideration-list" role="radiogroup" aria-label="Primary consideration">
-              {considerations.map((item) => (
-                <button
-                  key={item}
-                  type="button"
-                  role="radio"
-                  aria-checked={selected === item}
-                  onClick={() => setSelected(item)}
-                  className={selected === item ? "consideration selected" : "consideration"}
-                >
-                  <span className="radio-dot" />
-                  <span>{item}</span>
-                </button>
-              ))}
+          <form className="bate-search-card" onSubmit={onSearch}>
+            <label htmlFor="expert-search">What are you trying to accomplish?</label>
+            <div className="bate-search-control">
+              <Search size={20} />
+              <input id="expert-search" value={search} onChange={(event) => setSearch(event.target.value)} placeholder="For example, plan for retirement" />
+              <button type="submit" aria-label="Search for an expert"><ArrowRight size={20} /></button>
             </div>
-            <button type="button" onClick={handleConnect} className="button button-connect">
-              Continue with this topic <ArrowRight size={18} />
-            </button>
-            <p className="form-footnote">This initial selection does not create an engagement or constitute professional advice.</p>
+            <p>Search by life event, question, or profession.</p>
+          </form>
+          <div className="bate-professions" aria-label="Professional categories">
+            {professions.map((profession) => <button type="button" onClick={() => actionToast(profession)} key={profession}>{profession}<ArrowRight size={14} /></button>)}
+          </div>
+        </section>
+
+        <section className="bate-teams-section" id="teams" aria-labelledby="teams-title">
+          <div className="bate-section-lead bate-team-lead">
+            <div>
+              <p className="bate-kicker"><span /> Better together</p>
+              <h2 id="teams-title">The right team for the <em>whole picture.</em></h2>
+            </div>
+            <p>Life events often call for professionals who understand how their work connects. These pathways make that collaborative thinking easier to find.</p>
+          </div>
+          <div className="bate-team-grid">
+            {teams.map((team, index) => (
+              <article className={`bate-team bate-team-${team.accent}`} key={team.name}>
+                <p className="bate-team-index">0{index + 1} <UsersRound size={17} /></p>
+                <h3>{team.name} Team</h3>
+                <p>{team.copy}</p>
+                <div>{team.roles.map((role) => <span key={role}>{role}</span>)}</div>
+                <button type="button" onClick={() => actionToast(`${team.name} Team`)}>Explore this team <ArrowRight size={16} /></button>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="bate-insights-section" id="insights" aria-labelledby="insights-title">
+          <div className="bate-insights-photo" role="img" aria-label="Golden Gate Bridge detail in Bay Area coastal fog"><div><BookOpen size={22} /><span>Local insight for the questions that come next.</span></div></div>
+          <div className="bate-insights-copy">
+            <p className="bate-kicker"><span /> Ask a trusted expert</p>
+            <h2 id="insights-title">Questions about a major <em>life decision?</em></h2>
+            <p>Build a clearer point of view before you reach out. The future insights library will connect common questions with the professional categories that can help.</p>
+            <div className="bate-question-list">
+              {questions.map((question, index) => <button type="button" key={question} onClick={() => actionToast("Ask a Trusted Expert")}><span>{String(index + 1).padStart(2, "0")}</span>{question}<ArrowRight size={16} /></button>)}
+            </div>
+            <a href="#join" className="bate-text-link bate-navy-link">Explore expert insights <ArrowRight size={16} /></a>
+          </div>
+        </section>
+
+        <section className="bate-locations-section" aria-labelledby="locations-title">
+          <div className="bate-location-mark"><MapPin size={34} /><span>Bay Area<br />local authority</span></div>
+          <div>
+            <p className="bate-kicker"><span /> Find experts near you</p>
+            <h2 id="locations-title">Built for the places you <em>call home.</em></h2>
+          </div>
+          <div className="bate-city-list">{cities.map((city) => <button type="button" onClick={() => actionToast(`${city} directory`)} key={city}>{city}<ArrowRight size={15} /></button>)}</div>
+        </section>
+
+        <section className="bate-join-section" id="join" aria-labelledby="join-title">
+          <div className="bate-join-brand">
+            <img src="/manus-storage/BayAreaTrustedExperts_25237d54.png" alt="Bay Area Trusted Experts" />
+            <p className="bate-kicker bate-kicker-light"><span /> Passionate professionals</p>
+            <h2 id="join-title">A stronger professional community starts with <em>service.</em></h2>
+            <p>Join Bay Area Trusted Experts at no cost and build visibility, credibility, professional relationships, and referral opportunities while helping consumers find trusted people when life changes.</p>
+          </div>
+          <div className="bate-member-card">
+            <p className="bate-member-label">Membership includes</p>
+            <ul>
+              <li><Check size={16} /> Professional directory profile</li>
+              <li><Check size={16} /> Local and life-event placement</li>
+              <li><Check size={16} /> Trusted Expert member badge</li>
+              <li><Check size={16} /> Member introductions and events</li>
+              <li><Check size={16} /> Expert questions and media opportunities</li>
+            </ul>
+            <button type="button" onClick={() => actionToast("Join the network")} className="bate-button bate-button-gold">Join the network free <ArrowRight size={17} /></button>
+            <p className="bate-member-note">For experienced professionals who lead with expertise, collaboration, and care for the Bay Area community.</p>
           </div>
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="footer-brand">
-          <img src="/manus-storage/bate-bridge-mark_97ce37ec.png" alt="Bay Area Trusted Experts bridge mark" />
-          <span><strong>Bay Area Trusted Experts</strong><small>A considered local starting point.</small></span>
-        </div>
-        <p>Real estate & mortgage · Financial planning · Legal & estate · Insurance & risk · Business advisory</p>
-        <span className="footer-year">© 2026</span>
+      <footer className="bate-footer">
+        <div className="bate-footer-brand"><img src="/manus-storage/bate-bridge-mark_97ce37ec.png" alt="Bay Area Trusted Experts bridge mark" /><span><strong>Bay Area Trusted Experts</strong><small>Trusted Experts for Life’s Biggest Decisions</small></span></div>
+        <p>Trust · Expertise · Service · Relationships · Community · Passion</p>
+        <span>© 2026</span>
       </footer>
     </div>
   );
