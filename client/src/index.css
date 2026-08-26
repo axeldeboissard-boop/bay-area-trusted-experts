@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap');
 @import "tailwindcss";
 @import "tw-animate-css";
+@import "./member-network.css";
 
 @custom-variant dark (&:is(.dark *));
 @theme inline {
@@ -44,4 +45,10 @@
   @media(max-width:1040px){ .bate-nav{gap:1.25rem}.bate-hero{grid-template-columns:minmax(0,.9fr) minmax(390px,1.1fr)}.bate-event-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bate-team-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.bate-team{min-height:285px}.bate-locations-section{grid-template-columns:.34fr minmax(0,1fr)}.bate-city-list{grid-column:2}.bate-insights-section{grid-template-columns:minmax(0,.8fr) minmax(390px,1.2fr)} }
   @media(max-width:800px){ .bate-header{height:80px;padding-inline:1.2rem}.bate-brand{min-width:0}.bate-brand img{width:55px;height:55px}.bate-brand span{display:none}.bate-nav{display:none}.bate-header-button{font-size:9px;padding:.65rem .7rem}.bate-hero,.bate-find-section,.bate-insights-section,.bate-join-section{grid-template-columns:1fr}.bate-hero-copy{min-height:530px;padding:4.5rem clamp(1.4rem,7vw,4rem)}.bate-hero-art{min-height:420px}.bate-section-lead{grid-template-columns:1fr;gap:1.4rem}.bate-team-lead{margin-bottom:2.7rem}.bate-find-section{gap:2rem}.bate-professions{grid-column:auto}.bate-insights-photo{min-height:400px}.bate-locations-section{grid-template-columns:.25fr minmax(0,1fr);gap:1.5rem}.bate-city-list{grid-column:1/3}.bate-join-section{gap:3rem}.bate-footer{flex-wrap:wrap}.bate-footer>p{text-align:left} }
   @media(max-width:520px){ .bate-hero-copy{min-height:520px}.bate-hero-seal img{width:88px;height:88px}.bate-hero-seal{bottom:1.25rem}.bate-event-grid{grid-template-columns:1fr;margin-top:2.7rem}.bate-event{min-height:100px}.bate-event-title,.bate-event>svg:not(.bate-event-arrow),.bate-event-arrow{margin-top:.72rem}.bate-event-detail{margin-top:.55rem}.bate-section-lead h2{font-size:3rem}.bate-find-section{padding-block:4.5rem}.bate-search-card{padding:1rem}.bate-team-grid{grid-template-columns:1fr}.bate-team{min-height:250px}.bate-insights-copy{padding-block:4.5rem}.bate-question-list button{font-size:1rem}.bate-locations-section{grid-template-columns:1fr}.bate-location-mark{width:96px;height:96px}.bate-city-list{grid-column:auto;grid-template-columns:1fr}.bate-city-list button:nth-child(odd){margin-right:0}.bate-join-brand>img{width:88px;height:88px}.bate-footer{display:grid;grid-template-columns:1fr auto}.bate-footer>p{grid-column:1/3}.bate-footer>span{grid-column:2}.bate-footer-brand{grid-column:1} }
+  /* Route-and-ledger refinements added after visual review. */
+  .bate-event-grid { position:relative; }
+  .bate-event-grid::before { content:""; position:absolute; z-index:1; top:-5px; left:7%; right:7%; height:9px; pointer-events:none; background:radial-gradient(circle,#c88d32 0 2.5px,transparent 3.2px) 0 0/33.333% 9px repeat-x; }
+  .bate-event:nth-child(3n+2) { background:#fbf7ed; }
+  .bate-event:hover,.bate-event.active { z-index:2; transform:translateY(-3px); }
+  @media(max-width:520px){ .bate-event-grid::before { display:none; } }
 }

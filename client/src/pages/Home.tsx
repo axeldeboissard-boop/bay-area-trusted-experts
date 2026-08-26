@@ -91,7 +91,7 @@ export default function HomePage() {
           <a href="#insights">Insights</a>
           <a href="#join">About</a>
         </nav>
-        <a href="#join" className="bate-header-button">Join free <ArrowRight size={15} /></a>
+        <a href="/members" className="bate-header-button">Member access <ArrowRight size={15} /></a>
       </header>
 
       <main id="top">
@@ -102,7 +102,7 @@ export default function HomePage() {
             <p className="bate-hero-summary">Connect with proven Bay Area professionals in real estate, mortgage, financial planning, legal, insurance, business advisory, and other services that matter when life changes.</p>
             <div className="bate-hero-actions">
               <a href="#experts" className="bate-button bate-button-gold">Find an expert <ArrowRight size={17} /></a>
-              <a href="#join" className="bate-text-link">Join the network <ArrowRight size={16} /></a>
+              <a href="/members" className="bate-text-link">Member access <ArrowRight size={16} /></a>
             </div>
             <div className="bate-hero-trust"><Check size={15} /> Find the people who can help you move forward well.</div>
           </div>
@@ -220,7 +220,7 @@ export default function HomePage() {
               <li><Check size={16} /> Member introductions and events</li>
               <li><Check size={16} /> Expert questions and media opportunities</li>
             </ul>
-            <button type="button" onClick={() => actionToast("Join the network")} className="bate-button bate-button-gold">Join the network free <ArrowRight size={17} /></button>
+            <a href="/members" className="bate-button bate-button-gold">Explore member access <ArrowRight size={17} /></a>
             <p className="bate-member-note">For experienced professionals who lead with expertise, collaboration, and care for the Bay Area community.</p>
           </div>
         </section>
