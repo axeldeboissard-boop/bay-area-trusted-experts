@@ -15,3 +15,20 @@
 - [x] Build a closed member network page centered on relationships, Life Event Teams, and member standards.
 - [x] Add clear role-based interactions and page transitions between the two experiences.
 - [x] Validate public and private pages across desktop and mobile layouts.
+
+## Approved Professional Discovery
+
+- [x] Use only the supplied roster and contact details, with no external research or unlisted professionals.
+- [x] Extract and verify only the approved professionals from the supplied roster.
+- [x] Create a maintainable directory data source for future roster updates.
+- [x] Show relevant approved professional cards after a consumer searches by need.
+- [x] Show relevant approved professional cards after a consumer selects a life event.
+- [x] Validate expert results and contact details across desktop and mobile layouts.
+- [x] Validate an open life-event reveal and an open search result panel at a mobile viewport.
+
+## Life-Event Expert Reveal
+
+- [ ] Identify the approved professional list and images for each life-event pathway.
+- [x] Add a visual professional reveal panel to the life-event section.
+- [x] Connect Buying a Home and other life events to their relevant expert categories.
+- [x] Validate reveal interactions across desktop and mobile layouts.

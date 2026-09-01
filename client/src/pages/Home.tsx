@@ -13,15 +13,16 @@ import {
   HeartHandshake,
   Home,
   Landmark,
+  Mail,
   MapPin,
-  Scale,
+  Phone,
   Search,
-  ShieldCheck,
   Sparkles,
   UsersRound,
 } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { toast } from "sonner";
+import { ApprovedProfessional, initialsFor, LifeEventTitle, professionalsForLifeEvent, searchApprovedProfessionals } from "../data/approvedProfessionals";
 
 const lifeEvents = [
   { title: "Buying a Home", icon: Home, professionals: "Mortgage · Real Estate · Insurance" },
@@ -60,8 +61,13 @@ const questions = [
 const cities = ["San Francisco", "San Jose", "Palo Alto", "Los Gatos", "Oakland", "Berkeley", "Walnut Creek", "Santa Cruz"];
 
 export default function HomePage() {
-  const [activeEvent, setActiveEvent] = useState<string | null>(null);
-  const [search, setSearch] = useState("");
+  const [activeEvent, setActiveEvent] = useState<string | null>(() => {
+    const requestedEvent = new URLSearchParams(window.location.search).get("lifeEvent");
+    return lifeEvents.some((event) => event.title === requestedEvent) ? requestedEvent : null;
+  });
+  const [search, setSearch] = useState(() => new URLSearchParams(window.location.search).get("search") ?? "");
+  const searchResults = searchApprovedProfessionals(search);
+  const activeEventProfessionals = activeEvent ? professionalsForLifeEvent(activeEvent as LifeEventTitle) : [];
 
   const onSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -70,11 +76,16 @@ export default function HomePage() {
       toast("Tell us what you are trying to accomplish", { description: "For example: buy a home, plan for retirement, or start a business." });
       return;
     }
-    toast("We’re shaping your expert path", { description: `A future directory can connect “${query}” to the relevant professional categories.` });
+    if (!searchResults.length) {
+      toast("No exact match in the current approved roster", { description: "Try a broader need such as home, tax, estate, divorce, retirement, or insurance." });
+      return;
+    }
+    document.getElementById("expert-results")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
   const actionToast = (topic: string) => {
-    toast(`${topic} is part of the planned directory experience`, { description: "This landing page establishes the pathway. Directory and profile content can be connected next." });
+    setSearch(topic);
+    document.getElementById("expert-results")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
   };
 
   return (
@@ -138,6 +149,7 @@ export default function HomePage() {
               );
             })}
           </div>
+          {activeEvent && <ExpertReveal title={activeEvent} professionals={activeEventProfessionals} mode="life-event" />}
           <p className="bate-event-caption"><CircleHelp size={15} /> Select a life event to reveal a starting point. Detailed guides and expert introductions can be added as the directory grows.</p>
         </section>
 
@@ -159,6 +171,7 @@ export default function HomePage() {
           <div className="bate-professions" aria-label="Professional categories">
             {professions.map((profession) => <button type="button" onClick={() => actionToast(profession)} key={profession}>{profession}<ArrowRight size={14} /></button>)}
           </div>
+          {search && <ExpertReveal title={`Relevant approved professionals for “${search}”`} professionals={searchResults} mode="search" />}
         </section>
 
         <section className="bate-teams-section" id="teams" aria-labelledby="teams-title">
@@ -232,5 +245,33 @@ export default function HomePage() {
         <span>© 2026</span>
       </footer>
     </div>
+  );
+}
+
+function ExpertReveal({ title, professionals, mode }: { title: string; professionals: ApprovedProfessional[]; mode: "life-event" | "search" }) {
+  const limitedProfessionals = professionals.slice(0, 6);
+  return (
+    <section className={`bate-expert-reveal bate-expert-reveal-${mode}`} id={mode === "search" ? "expert-results" : undefined} aria-live="polite">
+      <div className="bate-expert-reveal-heading">
+        <div><p className="bate-kicker"><span /> Approved professional roster</p><h3>{title}</h3></div>
+        <p>{professionals.length ? `Here are ${professionals.length > 6 ? "the first six" : "the"} relevant professionals from the current approved roster.` : "No exact match is in the current approved roster. Try a broader search or choose another life event."}</p>
+      </div>
+      {Boolean(limitedProfessionals.length) && <div className="bate-expert-card-grid">
+        {limitedProfessionals.map((professional) => <ProfessionalCard key={professional.id} professional={professional} />)}
+      </div>}
+    </section>
+  );
+}
+
+function ProfessionalCard({ professional }: { professional: ApprovedProfessional }) {
+  return (
+    <article className="bate-expert-card">
+      <div className="bate-expert-avatar" aria-hidden="true">{initialsFor(professional.name)}</div>
+      <div className="bate-expert-card-copy"><p className="bate-expert-category">{professional.category}</p><h4>{professional.name}</h4><p className="bate-expert-firm">{professional.firm}</p><p className="bate-expert-specialty">{professional.specialty}</p></div>
+      <div className="bate-expert-contact">
+        {professional.phone && <a href={`tel:${professional.phone.replace(/[^+\d]/g, "")}`} aria-label={`Call ${professional.name}`}><Phone size={14} /> {professional.phone}</a>}
+        {professional.email && <a href={`mailto:${professional.email}`} aria-label={`Email ${professional.name}`}><Mail size={14} /> Email {professional.name.replace(/,.*$/, "").split(" ")[0]}</a>}
+      </div>
+    </article>
   );
 }
