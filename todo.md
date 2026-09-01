@@ -28,7 +28,15 @@
 
 ## Life-Event Expert Reveal
 
-- [ ] Identify the approved professional list and images for each life-event pathway.
+- [x] Resolve the earlier headshot request through the approved name-and-initial flip-tile design; real headshots remain an optional future roster update.
 - [x] Add a visual professional reveal panel to the life-event section.
 - [x] Connect Buying a Home and other life events to their relevant expert categories.
 - [x] Validate reveal interactions across desktop and mobile layouts.
+
+## Life-Event Flip Tiles
+
+- [x] Add Jim Black as the only approved professional shown for Mortgage.
+- [x] Replace the life-event reveal panels with hoverable and keyboard-accessible flip tiles.
+- [x] Configure each life-event tile to show three approved professionals.
+- [x] Add a dedicated Mortgage flip tile that shows only Jim Black.
+- [x] Validate flip-tile behavior and mobile tap fallback.

@@ -12,7 +12,7 @@ export type LifeEventTitle = (typeof lifeEventTitles)[number];
 export type ApprovedProfessional = {
   id: string;
   name: string;
-  category: "CPA" | "Financial Advisor" | "Estate Attorney" | "Family Law Attorney" | "Insurance Professional";
+  category: "CPA" | "Financial Advisor" | "Estate Attorney" | "Family Law Attorney" | "Insurance Professional" | "Mortgage Professional";
   firm: string;
   role: string;
   phone?: string;
@@ -24,6 +24,7 @@ export type ApprovedProfessional = {
 };
 
 export const approvedProfessionals: ApprovedProfessional[] = [
+  { id: "jim-black", name: "Jim Black", category: "Mortgage Professional", firm: "", role: "Mortgage Professional", email: "", specialty: "Mortgage", group: "", lifeEvents: ["Buying a Home", "Selling a Home", "Relocation"], keywords: ["mortgage", "home loan", "home financing", "buying a home", "refinance"] },
   { id: "michael-bryant", name: "Michael Bryant, CPA", category: "CPA", firm: "BryMar CPA, LLP", role: "Managing Partner", phone: "(831) 227-6565", email: "michael.bryant@brymar.cpa", specialty: "Audits, reviews and privately held businesses", group: "San Jose 3", lifeEvents: ["Starting a Business", "Selling a Business"], keywords: ["audit", "review", "business", "financial statements", "private company"] },
   { id: "nisha-golcha", name: "Nisha Golcha, CPA", category: "CPA", firm: "GHJ Advisors", role: "Tax Partner", phone: "(216) 375-1496", email: "ngolcha@ghjadvisors.com", specialty: "Corporate tax", group: "Santa Clara 2", lifeEvents: ["Starting a Business", "Selling a Business", "Investment Property"], keywords: ["tax", "corporate", "business", "investment"] },
   { id: "kim-le", name: "Kim Le, CPA", category: "CPA", firm: "A2Q2", role: "Founder & CEO", email: "kle@a2q2.com", specialty: "Accounting operations and internal controls", group: "Menlo Park 1", lifeEvents: ["Starting a Business", "Selling a Business"], keywords: ["accounting", "internal controls", "financial reporting", "business", "transaction"] },
@@ -48,6 +49,26 @@ export const approvedProfessionals: ApprovedProfessional[] = [
 
 export function professionalsForLifeEvent(lifeEvent: LifeEventTitle) {
   return approvedProfessionals.filter((professional) => professional.lifeEvents.includes(lifeEvent));
+}
+
+const tileSelections: Record<LifeEventTitle, [string, string, string]> = {
+  "Buying a Home": ["sarada-majumder", "mike-lee", "ben-jonas"],
+  "Selling a Home": ["sarada-majumder", "mike-lee", "ben-jonas"],
+  "Divorce": ["lydia-hsu", "meghan-herning", "patricia-zerbini"],
+  "Inheritance": ["christina-gorokhovsky", "sara-hire", "brigitte-binkert"],
+  "Retirement": ["kim-gaxiola", "zach-smith", "christina-gorokhovsky"],
+  "Aging Parents": ["christina-gorokhovsky", "sara-hire", "brigitte-binkert"],
+  "Starting a Business": ["michael-bryant", "nisha-golcha", "kim-le"],
+  "Selling a Business": ["michael-bryant", "nisha-golcha", "kim-le"],
+  "Relocation": ["ben-jonas", "mike-lee", "sarada-majumder"],
+  "Growing a Family": ["lydia-hsu", "meghan-herning", "patricia-zerbini"],
+  "Investment Property": ["nisha-golcha", "sarada-majumder", "angelo-desando"],
+  "Loss of a Loved One": ["christina-gorokhovsky", "sara-hire", "adam-ferguson"],
+};
+
+export function professionalsForTile(tile: LifeEventTitle | "Mortgage") {
+  const selectedIds = tile === "Mortgage" ? ["jim-black"] : tileSelections[tile];
+  return selectedIds.map((id) => approvedProfessionals.find((professional) => professional.id === id)).filter((professional): professional is ApprovedProfessional => Boolean(professional));
 }
 
 export function searchApprovedProfessionals(searchTerm: string) {

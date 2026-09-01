@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import { FormEvent, useState } from "react";
 import { toast } from "sonner";
-import { ApprovedProfessional, initialsFor, LifeEventTitle, professionalsForLifeEvent, searchApprovedProfessionals } from "../data/approvedProfessionals";
+import { ApprovedProfessional, initialsFor, LifeEventTitle, professionalsForTile, searchApprovedProfessionals } from "../data/approvedProfessionals";
 
 const lifeEvents = [
   { title: "Buying a Home", icon: Home, professionals: "Mortgage · Real Estate · Insurance" },
@@ -37,6 +37,7 @@ const lifeEvents = [
   { title: "Growing a Family", icon: Sparkles, professionals: "Estate Planning · Insurance · Financial Planning" },
   { title: "Investment Property", icon: Building2, professionals: "Real Estate · Tax · Insurance" },
   { title: "Loss of a Loved One", icon: HeartHandshake, professionals: "Estate Planning · Tax · Senior Services" },
+  { title: "Mortgage", icon: Landmark, professionals: "Mortgage Professional" },
 ];
 
 const professions = [
@@ -61,13 +62,12 @@ const questions = [
 const cities = ["San Francisco", "San Jose", "Palo Alto", "Los Gatos", "Oakland", "Berkeley", "Walnut Creek", "Santa Cruz"];
 
 export default function HomePage() {
-  const [activeEvent, setActiveEvent] = useState<string | null>(() => {
-    const requestedEvent = new URLSearchParams(window.location.search).get("lifeEvent");
-    return lifeEvents.some((event) => event.title === requestedEvent) ? requestedEvent : null;
+  const [flippedTile, setFlippedTile] = useState<string | null>(() => {
+    const requestedTile = new URLSearchParams(window.location.search).get("tile");
+    return lifeEvents.some((event) => event.title === requestedTile) ? requestedTile : null;
   });
   const [search, setSearch] = useState(() => new URLSearchParams(window.location.search).get("search") ?? "");
   const searchResults = searchApprovedProfessionals(search);
-  const activeEventProfessionals = activeEvent ? professionalsForLifeEvent(activeEvent as LifeEventTitle) : [];
 
   const onSearch = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -137,20 +137,31 @@ export default function HomePage() {
           <div className="bate-event-grid">
             {lifeEvents.map((item, index) => {
               const Icon = item.icon;
-              const isActive = activeEvent === item.title;
+              const isFlipped = flippedTile === item.title;
+              const professionals = professionalsForTile(item.title as LifeEventTitle | "Mortgage");
               return (
-                <button key={item.title} type="button" className={isActive ? "bate-event active" : "bate-event"} onClick={() => setActiveEvent(isActive ? null : item.title)} aria-expanded={isActive}>
-                  <span className="bate-event-number">{String(index + 1).padStart(2, "0")}</span>
-                  <Icon size={22} strokeWidth={1.5} />
-                  <span className="bate-event-title">{item.title}</span>
-                  <ArrowRight size={17} className="bate-event-arrow" />
-                  {isActive && <span className="bate-event-detail"><strong>Helpful expertise:</strong> {item.professionals}</span>}
+                <button key={item.title} type="button" className={isFlipped ? "bate-flip-tile is-flipped" : "bate-flip-tile"} onClick={() => setFlippedTile(isFlipped ? null : item.title)} aria-pressed={isFlipped} aria-label={`${item.title}. ${isFlipped ? "Hide" : "Show"} relevant approved professionals`}>
+                  <span className="bate-flip-inner">
+                    <span className="bate-flip-face bate-flip-front">
+                      <span className="bate-event-number">{String(index + 1).padStart(2, "0")}</span>
+                      <Icon size={22} strokeWidth={1.5} />
+                      <span className="bate-event-title">{item.title}</span>
+                      <ArrowRight size={17} className="bate-event-arrow" />
+                      <span className="bate-tile-prompt">Hover or tap to meet the team</span>
+                    </span>
+                    <span className="bate-flip-face bate-flip-back">
+                      <span className="bate-tile-back-label">{item.title === "Mortgage" ? "Mortgage professional" : "Relevant approved professionals"}</span>
+                      <span className="bate-tile-people">
+                        {professionals.map((professional) => <TileProfessional key={professional.id} professional={professional} />)}
+                      </span>
+                      <span className="bate-tile-back-hint">Tap to return <ArrowRight size={13} /></span>
+                    </span>
+                  </span>
                 </button>
               );
             })}
           </div>
-          {activeEvent && <ExpertReveal title={activeEvent} professionals={activeEventProfessionals} mode="life-event" />}
-          <p className="bate-event-caption"><CircleHelp size={15} /> Select a life event to reveal a starting point. Detailed guides and expert introductions can be added as the directory grows.</p>
+          <p className="bate-event-caption"><CircleHelp size={15} /> Hover over a tile, or tap it on mobile, to meet the relevant professionals from the current approved roster.</p>
         </section>
 
         <section className="bate-find-section" id="experts" aria-labelledby="find-title">
@@ -267,11 +278,15 @@ function ProfessionalCard({ professional }: { professional: ApprovedProfessional
   return (
     <article className="bate-expert-card">
       <div className="bate-expert-avatar" aria-hidden="true">{initialsFor(professional.name)}</div>
-      <div className="bate-expert-card-copy"><p className="bate-expert-category">{professional.category}</p><h4>{professional.name}</h4><p className="bate-expert-firm">{professional.firm}</p><p className="bate-expert-specialty">{professional.specialty}</p></div>
+      <div className="bate-expert-card-copy"><p className="bate-expert-category">{professional.category}</p><h4>{professional.name}</h4>{professional.firm && <p className="bate-expert-firm">{professional.firm}</p>}<p className="bate-expert-specialty">{professional.specialty}</p></div>
       <div className="bate-expert-contact">
         {professional.phone && <a href={`tel:${professional.phone.replace(/[^+\d]/g, "")}`} aria-label={`Call ${professional.name}`}><Phone size={14} /> {professional.phone}</a>}
         {professional.email && <a href={`mailto:${professional.email}`} aria-label={`Email ${professional.name}`}><Mail size={14} /> Email {professional.name.replace(/,.*$/, "").split(" ")[0]}</a>}
       </div>
     </article>
   );
+}
+
+function TileProfessional({ professional }: { professional: ApprovedProfessional }) {
+  return <span className="bate-tile-person"><span className="bate-tile-avatar" aria-hidden="true">{initialsFor(professional.name)}</span><span><strong>{professional.name}</strong><small>{professional.category}</small></span></span>;
 }
