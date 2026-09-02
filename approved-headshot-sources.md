@@ -21,3 +21,19 @@ The life-event grid now uses a consistent white front for every tile, with white
 The Nisha Golcha official website destination was opened and confirmed to resolve to her GHJ profile page. Tile phone links resolve from the stored roster numbers, while the website link opens in a new browser tab.
 
 All 13 tile fronts were checked and render the same Fog Paper white surface. The visible icons retain their requested white color inside accessible Navy medallions. The responsive phone layout keeps each tile’s three-person pattern readable, with a received portrait where one is available and a name-initial fallback where it is not.
+
+Christina Gorokhovsky’s headshot was supplied directly by the user and is assigned only to Christina’s roster record. It was confirmed on the Inheritance, Retirement, and Aging Parents tile data paths.
+
+Sara Hire’s and Adam Ferguson’s headshots were supplied directly by the user and are assigned only to their matching approved roster records.
+
+Brigitte Binkert’s headshot was supplied directly by the user and is assigned only to her matching approved roster record.
+
+Patrick Whitaker’s headshot was supplied directly by the user and is assigned only to his matching approved roster record.
+
+Ben Jonas’s headshot was supplied directly by the user and is assigned only to his matching approved roster record.
+
+Jim Black’s supplied image is assigned only to the mortgage-only roster entry. The tile uses a face-focused object position, preserving the user-supplied image without generating or substituting a new portrait.
+
+Lydia Hsu’s user-supplied full-length photograph was adapted into a head-and-shoulders profile crop for use solely on Lydia’s approved roster record.
+
+The Divorce tile was opened after integration and confirmed to render Lydia Hsu’s approved profile image alongside the remaining roster-matched professionals.

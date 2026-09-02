@@ -35,10 +35,26 @@ describe("approved professional directory", () => {
     const nisha = approvedProfessionals.find((professional) => professional.id === "nisha-golcha");
     const michael = approvedProfessionals.find((professional) => professional.id === "michael-bryant");
     const kimLe = approvedProfessionals.find((professional) => professional.id === "kim-le");
+    const christina = approvedProfessionals.find((professional) => professional.id === "christina-gorokhovsky");
+    const sara = approvedProfessionals.find((professional) => professional.id === "sara-hire");
+    const adam = approvedProfessionals.find((professional) => professional.id === "adam-ferguson");
+    const brigitte = approvedProfessionals.find((professional) => professional.id === "brigitte-binkert");
+    const patrick = approvedProfessionals.find((professional) => professional.id === "patrick-whitaker");
+    const ben = approvedProfessionals.find((professional) => professional.id === "ben-jonas");
+    const jim = approvedProfessionals.find((professional) => professional.id === "jim-black");
+    const lydia = approvedProfessionals.find((professional) => professional.id === "lydia-hsu");
 
     expect(nisha?.website).toBe("https://www.ghjadvisors.com/about-us/people/nisha-golcha");
     expect(nisha?.photoUrl).toContain("nisha-golcha-headshot");
     expect(michael?.photoUrl).toContain("michael-bryant-headshot");
     expect(kimLe?.photoUrl).toContain("kim-le-headshot");
+    expect(christina?.photoUrl).toContain("christina-gorokhovsky-headshot");
+    expect(sara?.photoUrl).toContain("sara-hire-headshot");
+    expect(adam?.photoUrl).toContain("adam-ferguson-headshot");
+    expect(brigitte?.photoUrl).toContain("brigitte-binkert-headshot");
+    expect(patrick?.photoUrl).toContain("patrick-whitaker-headshot");
+    expect(ben?.photoUrl).toContain("ben-jonas-headshot");
+    expect(jim?.photoUrl).toContain("jim-black-headshot");
+    expect(lydia?.photoUrl).toContain("lydia-hsu-headshot");
   });
 });

@@ -56,7 +56,15 @@
 
 ## Approved Headshots
 
-- [x] Add Michael Bryant’s supplied approved headshot to his roster profile and flip-tile appearance.
+- [x] Create a head-and-shoulders crop from Lydia Hsu’s supplied image and assign it to her roster profile.
+- [x] Add Jim Black’s supplied approved headshot to the Mortgage tile and roster profile.
+- [x] Add Michael Bryant’s supplied approved headshot to her roster profile and flip-tile appearance.
 - [x] Add Nisha Golcha’s supplied approved headshot and official website link to her roster profile and flip-tile appearance.
 - [x] Collect and match headshots from the authorized ProVisors page only for people already in the approved roster.
 - [x] Add Kim Le’s supplied approved headshot to her roster profile and flip-tile appearance.
+- [x] Add Christina Gorokhovsky’s supplied approved headshot to her roster profile and flip-tile appearance.
+- [x] Add Sara Hire’s supplied approved headshot to her roster profile and flip-tile appearance.
+- [x] Add Adam Ferguson’s supplied approved headshot to his roster profile and flip-tile appearance.
+- [x] Add Brigitte Binkert’s supplied approved headshot to her roster profile and flip-tile appearance.
+- [x] Add Patrick Whitaker’s supplied approved headshot to his roster profile and flip-tile appearance.
+- [x] Add Ben Jonas’s supplied approved headshot to his roster profile and flip-tile appearance.
