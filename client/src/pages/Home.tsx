@@ -291,7 +291,7 @@ function ProfessionalCard({ professional }: { professional: ApprovedProfessional
 function TileProfessional({ professional }: { professional: ApprovedProfessional }) {
   const websiteLabel = professional.website ? new URL(professional.website).hostname.replace(/^www\./, "") : "";
   return (
-    <span className="bate-tile-person">
+    <span className={professional.photoUrl ? "bate-tile-person" : "bate-tile-person bate-tile-person-initials"}>
       {professional.photoUrl ? <img className={professional.id === "jim-black" ? "bate-tile-portrait bate-tile-portrait-jim" : "bate-tile-portrait"} src={professional.photoUrl} alt={`Portrait of ${professional.name}`} /> : <span className="bate-tile-avatar" aria-hidden="true">{initialsFor(professional.name)}</span>}
       <span className="bate-tile-person-info"><strong>{professional.name}</strong><small>{professional.category}</small>{professional.phone && <a className="bate-tile-contact-link bate-tile-phone" href={`tel:${professional.phone.replace(/[^+\d]/g, "")}`} onClick={(event) => event.stopPropagation()}><Phone size={9} /> {professional.phone}</a>}{websiteLabel && professional.website && <a className="bate-tile-contact-link bate-tile-website" href={professional.website} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}><Globe2 size={9} /> {websiteLabel}</a>}</span>
     </span>

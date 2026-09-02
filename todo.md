@@ -76,3 +76,9 @@
 - [x] Assign the confirmed Angelo DeSando headshot to the matching approved roster profile and tiles.
 - [x] Record that Sara Majumder and Bau-Lin Yueh remain initials-only by user direction, with no headshot collection required.
 - [x] Assign the confirmed Angelo DeSando headshot to the matching approved roster profile and tiles.
+
+## Sara Majumder Visibility
+
+- [x] Confirm Sara Majumder’s public search and life-event assignments.
+- [x] Make Sara Majumder’s initials-only profile visibly recognizable in matching tile backs.
+- [x] Validate Sara Majumder’s public discovery results.
