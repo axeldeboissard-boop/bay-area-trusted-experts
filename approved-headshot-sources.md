@@ -37,3 +37,15 @@ Jim Black’s supplied image is assigned only to the mortgage-only roster entry.
 Lydia Hsu’s user-supplied full-length photograph was adapted into a head-and-shoulders profile crop for use solely on Lydia’s approved roster record.
 
 The Divorce tile was opened after integration and confirmed to render Lydia Hsu’s approved profile image alongside the remaining roster-matched professionals.
+
+Mike Lee’s and Zach Smith’s headshots were supplied directly by the user and are assigned only to their matching approved roster records.
+
+Meghan Herning’s headshot was supplied directly by the user and is assigned only to her matching approved roster record.
+
+The Divorce tile was opened after Meghan’s integration and confirmed to render both the Lydia Hsu and Meghan Herning approved profile images.
+
+Patricia Zerbini’s headshot was supplied directly by the user and is assigned only to her matching approved roster record.
+
+Kara Foster’s user-supplied full-length photograph was adapted into a head-and-shoulders profile crop for use solely on Kara’s approved roster record.
+
+The image labeled for Angelo DeSando was explicitly confirmed by the user and is assigned only to Angelo DeSando’s approved roster record. By user direction, Sara Majumder and Bau-Lin Yueh remain initial-based profile treatments, and no further headshot collection is required for them.

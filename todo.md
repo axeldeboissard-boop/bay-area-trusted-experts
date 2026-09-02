@@ -44,7 +44,7 @@
 ## Flip-Tile Profile Refinement
 
 - [x] Make every life-event tile front consistent white with white icons.
-- [ ] Show profile photos, phone numbers, and website links on the flip-tile backs.
+- [x] Show approved profile photos for received assets, initials-only fallbacks for Sara Majumder and Bau-Lin Yueh by user direction, roster phone links where supplied, and user-supplied website links.
 - [x] Add verified website and profile-image fields to the maintainable roster.
 - [x] Validate every refined tile front, the current headshot assignments, and Nisha Golcha’s supplied official website link.
 - [x] Implement profile-photo, phone, and official-website link treatments for roster records where the relevant approved data is available.
@@ -68,3 +68,11 @@
 - [x] Add Brigitte Binkert’s supplied approved headshot to her roster profile and flip-tile appearance.
 - [x] Add Patrick Whitaker’s supplied approved headshot to his roster profile and flip-tile appearance.
 - [x] Add Ben Jonas’s supplied approved headshot to his roster profile and flip-tile appearance.
+- [x] Add Mike Lee’s supplied approved headshot to his roster profile and flip-tile appearance.
+- [x] Add Zach Smith’s supplied approved headshot to his roster profile and flip-tile appearance.
+- [x] Add Meghan Herning’s supplied approved headshot to her roster profile and flip-tile appearance.
+- [x] Add Patricia Zerbini’s supplied approved headshot to her roster profile and flip-tile appearance.
+- [x] Create a head-and-shoulders crop from Kara Foster’s supplied image and assign it to her roster profile.
+- [x] Assign the confirmed Angelo DeSando headshot to the matching approved roster profile and tiles.
+- [x] Record that Sara Majumder and Bau-Lin Yueh remain initials-only by user direction, with no headshot collection required.
+- [x] Assign the confirmed Angelo DeSando headshot to the matching approved roster profile and tiles.
