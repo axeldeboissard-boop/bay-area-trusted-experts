@@ -82,3 +82,8 @@
 - [x] Confirm Sara Majumder’s public search and life-event assignments.
 - [x] Make Sara Majumder’s initials-only profile visibly recognizable in matching tile backs.
 - [x] Validate Sara Majumder’s public discovery results.
+
+## Sara Majumder Approved Headshot
+
+- [x] Add Sara Majumder’s supplied approved headshot to her roster profile and matching flip tiles.
+- [x] Validate Sara Majumder’s photo-based public tile presentation.

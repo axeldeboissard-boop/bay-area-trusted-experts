@@ -49,6 +49,7 @@ describe("approved professional directory", () => {
     const patricia = approvedProfessionals.find((professional) => professional.id === "patricia-zerbini");
     const kara = approvedProfessionals.find((professional) => professional.id === "kara-foster");
     const angelo = approvedProfessionals.find((professional) => professional.id === "angelo-desando");
+    const saraMajumder = approvedProfessionals.find((professional) => professional.id === "sarada-majumder");
 
     expect(nisha?.website).toBe("https://www.ghjadvisors.com/about-us/people/nisha-golcha");
     expect(nisha?.photoUrl).toContain("nisha-golcha-headshot");
@@ -68,5 +69,6 @@ describe("approved professional directory", () => {
     expect(patricia?.photoUrl).toContain("patricia-zerbini-headshot");
     expect(kara?.photoUrl).toContain("kara-foster-headshot");
     expect(angelo?.photoUrl).toContain("angelo-desando-headshot");
+    expect(saraMajumder?.photoUrl).toContain("sara-majumder-headshot");
   });
 });

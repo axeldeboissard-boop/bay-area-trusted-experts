@@ -49,3 +49,7 @@ Patricia Zerbini’s headshot was supplied directly by the user and is assigned 
 Kara Foster’s user-supplied full-length photograph was adapted into a head-and-shoulders profile crop for use solely on Kara’s approved roster record.
 
 The image labeled for Angelo DeSando was explicitly confirmed by the user and is assigned only to Angelo DeSando’s approved roster record. By user direction, Sara Majumder and Bau-Lin Yueh remain initial-based profile treatments, and no further headshot collection is required for them.
+
+Sara Majumder’s headshot was supplied directly by the user and is assigned only to the matching approved CPA roster record, replacing her previous initials-only treatment.
+
+The Buying a Home tile was opened after Sara Majumder’s update and confirmed to render her approved portrait alongside Mike Lee and Ben Jonas.
