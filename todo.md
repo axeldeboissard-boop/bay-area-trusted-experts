@@ -87,3 +87,9 @@
 
 - [x] Add Sara Majumder’s supplied approved headshot to her roster profile and matching flip tiles.
 - [x] Validate Sara Majumder’s photo-based public tile presentation.
+
+## Search Result Profile Photos
+
+- [x] Show each approved roster headshot in its matching What do you need help with? result card.
+- [x] Preserve initials-only fallbacks for roster entries without a supplied headshot.
+- [x] Validate profile photos and contacts in common consumer search results.

@@ -278,7 +278,7 @@ function ExpertReveal({ title, professionals, mode }: { title: string; professio
 function ProfessionalCard({ professional }: { professional: ApprovedProfessional }) {
   return (
     <article className="bate-expert-card">
-      <div className="bate-expert-avatar" aria-hidden="true">{initialsFor(professional.name)}</div>
+      {professional.photoUrl ? <img className="bate-expert-avatar bate-expert-portrait" style={{ display: "block", objectFit: "cover", objectPosition: "50% 35%", boxShadow: "0 4px 11px rgba(6,31,65,.12)" }} src={professional.photoUrl} alt={`Portrait of ${professional.name}`} /> : <div className="bate-expert-avatar" aria-hidden="true">{initialsFor(professional.name)}</div>}
       <div className="bate-expert-card-copy"><p className="bate-expert-category">{professional.category}</p><h4>{professional.name}</h4>{professional.firm && <p className="bate-expert-firm">{professional.firm}</p>}<p className="bate-expert-specialty">{professional.specialty}</p></div>
       <div className="bate-expert-contact">
         {professional.phone && <a href={`tel:${professional.phone.replace(/[^+\d]/g, "")}`} aria-label={`Call ${professional.name}`}><Phone size={14} /> {professional.phone}</a>}
