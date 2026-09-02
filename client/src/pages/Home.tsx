@@ -10,6 +10,7 @@ import {
   Check,
   CircleHelp,
   Compass,
+  Globe2,
   HeartHandshake,
   Home,
   Landmark,
@@ -140,7 +141,7 @@ export default function HomePage() {
               const isFlipped = flippedTile === item.title;
               const professionals = professionalsForTile(item.title as LifeEventTitle | "Mortgage");
               return (
-                <button key={item.title} type="button" className={isFlipped ? "bate-flip-tile is-flipped" : "bate-flip-tile"} onClick={() => setFlippedTile(isFlipped ? null : item.title)} aria-pressed={isFlipped} aria-label={`${item.title}. ${isFlipped ? "Hide" : "Show"} relevant approved professionals`}>
+                <div key={item.title} className={isFlipped ? "bate-flip-tile is-flipped" : "bate-flip-tile"} onClick={() => setFlippedTile(isFlipped ? null : item.title)} onKeyDown={(event) => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); setFlippedTile(isFlipped ? null : item.title); } }} role="button" tabIndex={0} aria-pressed={isFlipped} aria-label={`${item.title}. ${isFlipped ? "Hide" : "Show"} relevant approved professionals`}>
                   <span className="bate-flip-inner">
                     <span className="bate-flip-face bate-flip-front">
                       <span className="bate-event-number">{String(index + 1).padStart(2, "0")}</span>
@@ -157,7 +158,7 @@ export default function HomePage() {
                       <span className="bate-tile-back-hint">Tap to return <ArrowRight size={13} /></span>
                     </span>
                   </span>
-                </button>
+                </div>
               );
             })}
           </div>
@@ -288,5 +289,11 @@ function ProfessionalCard({ professional }: { professional: ApprovedProfessional
 }
 
 function TileProfessional({ professional }: { professional: ApprovedProfessional }) {
-  return <span className="bate-tile-person"><span className="bate-tile-avatar" aria-hidden="true">{initialsFor(professional.name)}</span><span><strong>{professional.name}</strong><small>{professional.category}</small></span></span>;
+  const websiteLabel = professional.website ? new URL(professional.website).hostname.replace(/^www\./, "") : "";
+  return (
+    <span className="bate-tile-person">
+      {professional.photoUrl ? <img className="bate-tile-portrait" src={professional.photoUrl} alt={`Portrait of ${professional.name}`} /> : <span className="bate-tile-avatar" aria-hidden="true">{initialsFor(professional.name)}</span>}
+      <span className="bate-tile-person-info"><strong>{professional.name}</strong><small>{professional.category}</small>{professional.phone && <a className="bate-tile-contact-link bate-tile-phone" href={`tel:${professional.phone.replace(/[^+\d]/g, "")}`} onClick={(event) => event.stopPropagation()}><Phone size={9} /> {professional.phone}</a>}{websiteLabel && professional.website && <a className="bate-tile-contact-link bate-tile-website" href={professional.website} target="_blank" rel="noreferrer" onClick={(event) => event.stopPropagation()}><Globe2 size={9} /> {websiteLabel}</a>}</span>
+    </span>
+  );
 }

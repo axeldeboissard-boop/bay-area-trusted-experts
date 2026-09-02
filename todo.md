@@ -40,3 +40,23 @@
 - [x] Configure each life-event tile to show three approved professionals.
 - [x] Add a dedicated Mortgage flip tile that shows only Jim Black.
 - [x] Validate flip-tile behavior and mobile tap fallback.
+
+## Flip-Tile Profile Refinement
+
+- [x] Make every life-event tile front consistent white with white icons.
+- [ ] Show profile photos, phone numbers, and website links on the flip-tile backs.
+- [x] Add verified website and profile-image fields to the maintainable roster.
+- [x] Validate every refined tile front, the current headshot assignments, and Nisha Golcha’s supplied official website link.
+- [x] Implement profile-photo, phone, and official-website link treatments for roster records where the relevant approved data is available.
+
+## Official Website Collection
+
+- [ ] Add official website links only when supplied by the user.
+- [x] Use non-photographic professional tiles where approved headshots have not yet been supplied.
+
+## Approved Headshots
+
+- [x] Add Michael Bryant’s supplied approved headshot to his roster profile and flip-tile appearance.
+- [x] Add Nisha Golcha’s supplied approved headshot and official website link to her roster profile and flip-tile appearance.
+- [x] Collect and match headshots from the authorized ProVisors page only for people already in the approved roster.
+- [x] Add Kim Le’s supplied approved headshot to her roster profile and flip-tile appearance.

@@ -30,4 +30,15 @@ describe("approved professional directory", () => {
     expect(professionalsForTile("Buying a Home")).toHaveLength(3);
     expect(professionalsForTile("Mortgage").map((professional) => professional.name)).toEqual(["Jim Black"]);
   });
+
+  it("keeps supplied profile assets and website information attached to the matching approved entries", () => {
+    const nisha = approvedProfessionals.find((professional) => professional.id === "nisha-golcha");
+    const michael = approvedProfessionals.find((professional) => professional.id === "michael-bryant");
+    const kimLe = approvedProfessionals.find((professional) => professional.id === "kim-le");
+
+    expect(nisha?.website).toBe("https://www.ghjadvisors.com/about-us/people/nisha-golcha");
+    expect(nisha?.photoUrl).toContain("nisha-golcha-headshot");
+    expect(michael?.photoUrl).toContain("michael-bryant-headshot");
+    expect(kimLe?.photoUrl).toContain("kim-le-headshot");
+  });
 });
