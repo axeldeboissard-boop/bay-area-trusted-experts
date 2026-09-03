@@ -51,7 +51,7 @@
 
 ## Official Website Collection
 
-- [ ] Add official website links only when supplied by the user.
+- [x] Add official website links only when supplied by the user; all current roster destinations have now been provided and added.
 - [x] Use non-photographic professional tiles where approved headshots have not yet been supplied.
 
 ## Approved Headshots
