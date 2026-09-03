@@ -53,3 +53,27 @@ The image labeled for Angelo DeSando was explicitly confirmed by the user and is
 Sara Majumder’s headshot was supplied directly by the user and is assigned only to the matching approved CPA roster record, replacing her previous initials-only treatment.
 
 The Buying a Home tile was opened after Sara Majumder’s update and confirmed to render her approved portrait alongside Mike Lee and Ben Jonas.
+
+Jim Black’s official website, https://meetjimblack.com/, and Michael Bryant’s official website, https://www.brymar.cpa/aboutus, were supplied directly by the user and assigned only to their matching approved roster records.
+
+Kim Le’s official website, https://kimleecpas.com/, was supplied directly by the user and assigned only to Kim Le’s approved roster record.
+
+Sara Majumder’s official website, https://sfbaycpa.biz/, was supplied directly by the user and assigned only to her matching approved CPA roster record.
+
+Kim Gaxiola’s official website, https://www.resilientplanning.com/team/kim-gaxiola, was supplied directly by the user and assigned only to her matching approved roster record.
+
+Mike Lee’s official website, https://www.edwardjones.com/us-en/financial-advisor/mike-lee, was supplied directly by the user and assigned only to his matching approved roster record.
+
+Jason Papier’s official website, https://www.wrpwealth.com/who-we-are/, was supplied directly by the user and assigned only to his matching approved roster record.
+
+Zach Smith’s official website, https://www.brightonjones.com/team/zach-smith-cfp/, was supplied directly by the user and assigned only to his matching approved roster record.
+
+Christina Gorokhovsky’s official website, https://gorokhovskylaw.com/, was supplied directly by the user and assigned only to her matching approved roster record.
+
+Sara Hire’s official website, https://www.lathropgpm.com/team/sara-hire/, was supplied directly by the user and assigned only to her matching approved roster record.
+
+Adam Ferguson’s official website, https://ferglawgroup.com/team/adam-ferguson/, was supplied directly by the user and assigned only to his matching approved roster record.
+
+Brigitte Binkert’s official website, https://www.binkertgreenelaw.com/, and Lydia Hsu’s official website, https://www.fosterhsu.com/about/lydia-e-hsu/, were supplied directly by the user and assigned only to their matching approved roster records.
+
+Meghan Herning, Patricia Zerbini, Kara Foster, Bau-Lin Yueh, Ben Jonas, Patrick Whitaker, and Angelo DeSando supplied their matching profile destinations directly through the user. These links are assigned only to their approved roster records: https://www.jkzllp.com/attorney/herning-meghan/, https://hooverkrepelka.com/attorney/zerbini-patricia-m/, https://www.fosterhsu.com/about/kara-n-foster/, https://www.linkedin.com/in/bau-lin-yueh-bb43576/, https://www.hubinternational.com/, https://www.whitakerfs.com/team/patrick-whitaker, and https://desandoins.com/.

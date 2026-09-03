@@ -93,3 +93,41 @@
 - [x] Show each approved roster headshot in its matching What do you need help with? result card.
 - [x] Preserve initials-only fallbacks for roster entries without a supplied headshot.
 - [x] Validate profile photos and contacts in common consumer search results.
+
+## Official Websites and Credentials
+
+- [ ] Identify the authoritative official source for each professional category’s website and license or credential number.
+- [ ] Verify official website links for the approved roster.
+- [ ] Verify publicly available license or credential numbers for the approved roster without guessing missing data.
+- [ ] Add only verified website and credential information to the maintainable roster.
+- [ ] Validate the public presentation and destination of verified profile links.
+
+## User-Supplied Official Links
+
+- [x] Add Jim Black’s supplied official website link to his roster profile, Mortgage tile, and consumer search card.
+- [x] Add Michael Bryant’s supplied official website link to his roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Kim Le’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Sara Majumder’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Kim Gaxiola’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Mike Lee’s supplied official website link to his roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Jason Papier’s supplied official website link to his roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Zach Smith’s supplied official website link to his roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Christina Gorokhovsky’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Sara Hire’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Adam Ferguson’s supplied official website link to his roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Brigitte Binkert’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Lydia Hsu’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Meghan Herning’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Patricia Zerbini’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Kara Foster’s supplied official website link to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Bau-Lin Yueh’s supplied LinkedIn profile destination to her roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Ben Jonas’s supplied official website link to his roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Patrick Whitaker’s supplied official website link to his roster profile, relevant life-event tiles, and consumer search card.
+- [x] Add Angelo DeSando’s supplied official website link to his roster profile, relevant life-event tiles, and consumer search card.
+
+## Official Profile Linking
+
+- [x] Complete every received official website and profile-destination assignment in the approved roster.
+- [x] Make every professional name and headshot open the matching official destination from life-event tiles and consumer search cards.
+- [x] Validate the linked names and headshots in representative tiles and consumer search results.
+- [x] Publish the completed official-profile link update.

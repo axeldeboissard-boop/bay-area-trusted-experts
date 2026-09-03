@@ -31,6 +31,10 @@ describe("approved professional directory", () => {
     expect(professionalsForTile("Mortgage").map((professional) => professional.name)).toEqual(["Jim Black"]);
   });
 
+  it("keeps a supplied official destination for every active approved professional", () => {
+    expect(approvedProfessionals.every((professional) => Boolean(professional.website))).toBe(true);
+  });
+
   it("keeps supplied profile assets and website information attached to the matching approved entries", () => {
     const nisha = approvedProfessionals.find((professional) => professional.id === "nisha-golcha");
     const michael = approvedProfessionals.find((professional) => professional.id === "michael-bryant");
@@ -50,9 +54,45 @@ describe("approved professional directory", () => {
     const kara = approvedProfessionals.find((professional) => professional.id === "kara-foster");
     const angelo = approvedProfessionals.find((professional) => professional.id === "angelo-desando");
     const saraMajumder = approvedProfessionals.find((professional) => professional.id === "sarada-majumder");
+    const kimGaxiola = approvedProfessionals.find((professional) => professional.id === "kim-gaxiola");
+    const mikeLee = approvedProfessionals.find((professional) => professional.id === "mike-lee");
+    const jasonPapier = approvedProfessionals.find((professional) => professional.id === "jason-papier");
+    const zachSmith = approvedProfessionals.find((professional) => professional.id === "zach-smith");
+    const christinaGorokhovsky = approvedProfessionals.find((professional) => professional.id === "christina-gorokhovsky");
+    const saraHire = approvedProfessionals.find((professional) => professional.id === "sara-hire");
+    const adamFerguson = approvedProfessionals.find((professional) => professional.id === "adam-ferguson");
+    const brigitteBinkert = approvedProfessionals.find((professional) => professional.id === "brigitte-binkert");
+    const lydiaHsu = approvedProfessionals.find((professional) => professional.id === "lydia-hsu");
+    const meghanHerning = approvedProfessionals.find((professional) => professional.id === "meghan-herning");
+    const patriciaZerbini = approvedProfessionals.find((professional) => professional.id === "patricia-zerbini");
+    const karaFoster = approvedProfessionals.find((professional) => professional.id === "kara-foster");
+    const bauLinYueh = approvedProfessionals.find((professional) => professional.id === "bau-lin-yueh");
+    const benJonas = approvedProfessionals.find((professional) => professional.id === "ben-jonas");
+    const patrickWhitaker = approvedProfessionals.find((professional) => professional.id === "patrick-whitaker");
+    const angeloDeSando = approvedProfessionals.find((professional) => professional.id === "angelo-desando");
 
     expect(nisha?.website).toBe("https://www.ghjadvisors.com/about-us/people/nisha-golcha");
     expect(nisha?.photoUrl).toContain("nisha-golcha-headshot");
+    expect(jim?.website).toBe("https://meetjimblack.com/");
+    expect(michael?.website).toBe("https://www.brymar.cpa/aboutus");
+    expect(kimLe?.website).toBe("https://kimleecpas.com/");
+    expect(saraMajumder?.website).toBe("https://sfbaycpa.biz/");
+    expect(kimGaxiola?.website).toBe("https://www.resilientplanning.com/team/kim-gaxiola");
+    expect(mikeLee?.website).toBe("https://www.edwardjones.com/us-en/financial-advisor/mike-lee");
+    expect(jasonPapier?.website).toBe("https://www.wrpwealth.com/who-we-are/");
+    expect(zachSmith?.website).toBe("https://www.brightonjones.com/team/zach-smith-cfp/");
+    expect(christinaGorokhovsky?.website).toBe("https://gorokhovskylaw.com/");
+    expect(saraHire?.website).toBe("https://www.lathropgpm.com/team/sara-hire/");
+    expect(adamFerguson?.website).toBe("https://ferglawgroup.com/team/adam-ferguson/");
+    expect(brigitteBinkert?.website).toBe("https://www.binkertgreenelaw.com/");
+    expect(lydiaHsu?.website).toBe("https://www.fosterhsu.com/about/lydia-e-hsu/");
+    expect(meghanHerning?.website).toBe("https://www.jkzllp.com/attorney/herning-meghan/");
+    expect(patriciaZerbini?.website).toBe("https://hooverkrepelka.com/attorney/zerbini-patricia-m/");
+    expect(karaFoster?.website).toBe("https://www.fosterhsu.com/about/kara-n-foster/");
+    expect(bauLinYueh?.website).toBe("https://www.linkedin.com/in/bau-lin-yueh-bb43576/");
+    expect(benJonas?.website).toBe("https://www.hubinternational.com/");
+    expect(patrickWhitaker?.website).toBe("https://www.whitakerfs.com/team/patrick-whitaker");
+    expect(angeloDeSando?.website).toBe("https://desandoins.com/");
     expect(michael?.photoUrl).toContain("michael-bryant-headshot");
     expect(kimLe?.photoUrl).toContain("kim-le-headshot");
     expect(christina?.photoUrl).toContain("christina-gorokhovsky-headshot");
