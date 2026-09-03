@@ -96,11 +96,11 @@
 
 ## Official Websites and Credentials
 
-- [ ] Identify the authoritative official source for each professional category’s website and license or credential number.
-- [ ] Verify official website links for the approved roster.
-- [ ] Verify publicly available license or credential numbers for the approved roster without guessing missing data.
-- [ ] Add only verified website and credential information to the maintainable roster.
-- [ ] Validate the public presentation and destination of verified profile links.
+- [x] Earlier external research attempts were abandoned after the user chose to supply professional destinations directly.
+- [x] Superseded by the final user-supplied website workflow; each provided destination was recorded only against its matching approved roster entry.
+- [x] Deferred to the user: no license or credential fields or values were added to the roster.
+- [x] Completed for the current scope: add only user-supplied professional destinations to the maintainable roster.
+- [x] Completed for the current scope: validate public presentation of representative user-supplied profile links.
 
 ## User-Supplied Official Links
 
